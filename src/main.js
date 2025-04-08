@@ -73,7 +73,7 @@ function handleSubmit(event) {
         <a class="gallery-item-link" href="${webformatURL}">
         <img class="item-image"
         src="${largeImageURL}"
-        alt="${tags}"
+        alt="${tags}" 
         />        
         </a>            
         <h3>Likes:"${likes}"</h3>

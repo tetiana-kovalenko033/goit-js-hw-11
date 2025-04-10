@@ -1,39 +1,53 @@
-// import SimpleLightbox from "simplelightbox";
-// import "simplelightbox/dist/simple-lightbox.min.css";
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
-// const form = document.querySelector(".form");
-// const list = document.querySelector(".gallery-list");
-// const container = document.querySelector(".gallery");
-// const textInput = document.querySelector('input[name = "search-text"]');
+const galleryList = document.querySelector('.gallery');
+const loader = document.querySelector('.loader');
 
-// import { getImagesByQuery } from "./pixabay-api";
+const lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+});
 
-// export function createGallery(images) {
-//     images.map((image) =>
-//         `<div class="gallery">
-//          <li class="gallery-item">       
-//         <a class="gallery-item-link" href=`${image.webformatURL }`>
-//         <img class="item-image"
-//         src=`${ image.largeImageURL }`
-//         alt=`${ image.tags }`
-//         />        
-//         </a>            
-//         <h3>`${image.likes}`</h3>
-//         <h4>`${image.views}`</h4>
-//         <h5>`${image.comments}`</h5>
-//         <p>`${ image.downloads }`</p>
-//         </div>         
-//         </li> `
-//     ).join("");    
-//     lightbox.refresh();
-// };
+export function createGallery(images) {
+  const markup = images
+    .map(
+      ({
+        webformatURL,
+        largeImageURL,
+        tags,
+        likes,
+        views,
+        comments,
+        downloads,
+      }) =>
+        `<li class="gallery-item">
+        <a class="gallery-link" href="${webformatURL}">
+        <img class="item-image"
+        src="${largeImageURL}"
+        // alt="${tags}" width = "360" height = "200"
+        />
+        </a>
+        <div class="gallery-card">
+        <p><b>Likes:</b> ${likes}</p>
+        <p><b>Views:</b> ${views}</p>
+        <p><b>Comment:</b> ${comments}</p>
+        <p><b>Download:</b> ${downloads}</p>
+        </div>
+                </li> `
+    )
+    .join('');
+  galleryList.insertAdjacentHTML('beforeend', markup);
 
+  lightbox.refresh();
+}
 
-// const lightbox = new SimpleLightbox('.gallery a', {
-//   captionsData: 'alt',
-//     captionDelay: 250,
-  
-// });
-// clearGallery()
-// showLoader()
-// hideLoader()
+export function clearGallery() {
+  galleryList.innerHTML = '';
+}
+export function showLoader() {
+  loader.classList.remove('hidden');
+}
+export function hideLoader() {
+  loader.classList.add('hidden');
+}

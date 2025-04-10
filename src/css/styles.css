@@ -61,8 +61,7 @@
   border-radius: 4px;
   background-color: #fff;
 }
-.form input:hover,
-.form input:focus {
+.form input:hover {
   border: 1px solid #000;
 }
 
@@ -70,6 +69,15 @@
   background-color: #fff;
   border-color: #4e75ff;
 }
+
+/* .form input::placeholder-shown {
+  border-color: #4e75ff;
+} */
+
+/* .form input:focus-within {
+  background-color: #fff;
+  border-color: #4e75ff;
+} */
 
 .form button {
   border-radius: 8px;
@@ -119,7 +127,7 @@ b {
 
 .my-toast .iziToast-body {
   text-align: center;
-  width: 350px;
+  width: 375px;
   height: 88px;
   font-weight: 400;
   font-family: 'Montserrat', sans-serif;

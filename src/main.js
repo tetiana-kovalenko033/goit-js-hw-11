@@ -53,6 +53,15 @@ function onFormSubmit(event) {
     })
     .catch(error => {
       console.log(error);
+      iziToast.error({
+        class: 'my-toast',
+        title: '',
+        timeout: 10000,
+        message: 'An error occurred during the request.!',
+        theme: 'dark',
+        position: 'topRight',
+        backgroundColor: 'red',
+      });
     })
     .finally(() => {
       hideLoader();

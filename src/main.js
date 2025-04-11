@@ -57,7 +57,7 @@ function onFormSubmit(event) {
         class: 'my-toast',
         title: '',
         timeout: 10000,
-        message: 'An error occurred during the request.!',
+        message: 'An error occurred during the request!',
         theme: 'dark',
         position: 'topRight',
         backgroundColor: 'red',
